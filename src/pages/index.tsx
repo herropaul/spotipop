@@ -1,6 +1,16 @@
 import type { NextPage } from 'next'
+import { trpc } from './utils/trpc'
 
 const Home: NextPage = () => {
+  const {data, isLoading} = trpc.useQuery(["hello", {text: "Paul"}]);
+
+  if(isLoading){
+    return <div>Loading...</div>
+  }
+  if(data){
+    return <div>{data.greeting}</div>
+  }
+  
   return (
     <div className=' h-screen w-screen flex flex-col justify-center items-center'>
       <div className='text-xl text-center'>Which Artist is more popular?</div>
