@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 body {
-  @apply text-white bg-gray-800;
+  @apply text-black bg-lime-200;
   overscroll-behavior-y: none;
 }
